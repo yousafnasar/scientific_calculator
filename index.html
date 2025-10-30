@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Modern Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="nav">
+            <div class="title"></div>
+            <div class="menu">
+                <button id="menuBtn" class="menu-btn">⋯</button>
+                <div id="submenu" class="submenu">
+                    <button id="sciModeBtn">Scientific Mode</button>
+                    <button id="unitConvBtn">Unit Conversion</button>
+                    <button id="currConvBtn">Currency Conversion</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="display" class="display">0</div>
+
+        <div class="buttons">
+            <button class="gray" onclick="clearAll()">AC</button>
+            <button class="gray" onclick="appendOperator('%')">%</button>
+            <button class="gray" onclick="appendOperator('/')">÷</button>
+
+            <button class="orange" onclick="appendOperator('*')">×</button>
+
+            <button class="dark" onclick="appendNumber('7')">7</button>
+            <button class="dark" onclick="appendNumber('8')">8</button>
+            <button class="dark" onclick="appendNumber('9')">9</button>
+            <button class="orange" onclick="appendOperator('-')">−</button>
+
+            <button class="dark" onclick="appendNumber('4')">4</button>
+            <button class="dark" onclick="appendNumber('5')">5</button>
+            <button class="dark" onclick="appendNumber('6')">6</button>
+            <button class="orange" onclick="appendOperator('+')">+</button>
+
+            <button class="dark" onclick="appendNumber('1')">1</button>
+            <button class="dark" onclick="appendNumber('2')">2</button>
+            <button class="dark" onclick="appendNumber('3')">3</button>
+            <button class="orange equal" onclick="calculateResult()">=</button>
+
+            <button class="zero dark" onclick="appendNumber('0')">0</button>
+            <button class="dark" onclick="appendNumber('.')">.</button>
+        </div>
+
+        <!-- Scientific panel (hidden by default) -->
+        <div id="scientificPanel" class="panel hidden">
+            <div class="panel-row">
+                <button class="sci" onclick="appendScientific('sinDeg(')">sin°</button>
+                <button class="sci" onclick="appendScientific('cosDeg(')">cos°</button>
+                <button class="sci" onclick="appendScientific('tanDeg(')">tan°</button>
+            </div>
+            <div class="panel-row">
+                <button class="sci" onclick="appendScientific('Math.sqrt(')">√</button>
+                <button class="sci" onclick="appendScientific('Math.pow(')">pow(,)</button>
+                <button class="sci" onclick="appendScientific('Math.log(')">ln</button>
+            </div>
+            <div class="panel-row">
+                <button class="sci" onclick="appendScientific('(')">(</button>
+                <button class="sci" onclick="appendScientific(')')">)</button>
+                <button class="sci" onclick="deleteLast()">⌫</button>
+            </div>
+        </div>
+
+        <!-- Unit conversion panel -->
+        <div id="unitPanel" class="panel hidden">
+            <label>Value</label>
+            <input id="unitValue" type="number" placeholder="Enter value" />
+            <select id="unitType">
+                <option value="cmToIn">cm → inch</option>
+                <option value="inToCm">inch → cm</option>
+                <option value="kgToLb">kg → lb</option>
+                <option value="lbToKg">lb → kg</option>
+                <option value="cToF">°C → °F</option>
+                <option value="fToC">°F → °C</option>
+            </select>
+            <button class="convert" onclick="convertUnit()">Convert</button>
+            <div id="unitResult" class="convert-result"></div>
+        </div>
+
+        <!-- Currency conversion panel -->
+        <div id="currencyPanel" class="panel hidden">
+            <label>Amount</label>
+            <input id="currencyValue" type="number" placeholder="Enter amount" />
+            <select id="currencyType">
+                <option value="usdToPkr">USD → PKR</option>
+                <option value="pkrToUsd">PKR → USD</option>
+                <option value="usdToEur">USD → EUR</option>
+                <option value="eurToUsd">EUR → USD</option>
+            </select>
+            <button class="convert" onclick="convertCurrency()">Convert</button>
+            <div id="currencyResult" class="convert-result"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

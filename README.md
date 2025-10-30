@@ -1,7 +1,7 @@
 # 🧮 Scientific Calculator
 ### Advanced Mathematical Computing with Multiple Modes
 
-![Calculator Demo](https://github.com/user-attachments/assets/0fa745c5-c1c5-402c-9004-a0a966af6501)
+![Calculator Demo](https://github.com/yousafnasar/scientific_calculator/blob/main/assets/images/calculator.png)
 
 ---
 
